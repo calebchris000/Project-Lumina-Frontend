@@ -95,7 +95,7 @@
   .sidebar_container {
     background-color: #445569;
     color: white;
-    width: 10rem;
+    width: 12rem;
     padding: 1rem;
     font-family: sans-serif;
     border-radius: 18px;
