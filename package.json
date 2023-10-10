@@ -13,14 +13,24 @@
 		"@sveltejs/adapter-auto": "^2.0.0",
 		"@sveltejs/kit": "^1.20.4",
 		"flowbite-svelte-icons": "^0.4.4",
-		"svelte": "^4.0.5",
+		"sass": "^1.69.1",
+		"svelte": "^4.2.1",
+		"svelte-calendar": "^3.1.6",
 		"svelte-check": "^3.4.3",
+		"svelte-frappe-charts": "^1.10.0",
 		"tslib": "^2.4.1",
 		"typescript": "^5.0.0",
 		"vite": "^4.4.2"
 	},
 	"type": "module",
 	"dependencies": {
+		"@fullcalendar/core": "^6.1.9",
+		"@fullcalendar/daygrid": "^6.1.9",
+		"@svelteuidev/composables": "^0.15.3",
+		"@svelteuidev/core": "^0.15.3",
+		"@svelteuidev/dates": "^0.15.3",
+		"dayjs": "^1.11.10",
+		"fusioncharts": "^3.21.1",
 		"iconify-icon": "^1.0.8",
 		"remove": "^0.1.5"
 	}

@@ -1,6 +1,7 @@
 <script lang="ts">
-  import LogoSection from "./LogoSection.svelte";
-  let currentOption: string;
+  import LogoSection from "./logo_section.svelte";
+  let currentOption: string = 'Dashboard';
+  import 'iconify-icon'
 
   const handleClick = (e) => {
     currentOption = e.target.innerText;
@@ -99,13 +100,12 @@
     padding: 1rem;
     font-family: sans-serif;
     border-radius: 18px;
+    margin: 1rem 0;
     position: fixed;
     overflow-x: hidden;
     overflow-y: auto;
-
     top: 0;
     bottom: 0;
-    margin: 2rem 0;
   }
   .sidebar_container::-webkit-scrollbar {
     opacity: 0;
