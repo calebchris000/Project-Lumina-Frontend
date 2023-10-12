@@ -16,8 +16,8 @@
 
   <section style="grid-area: totality_holder;" class="totality-holder">
     <CardTotality present={data.students.present} total={data.students.total} />
-    <CardTotality present={1202} name="Teachers" total={20002} icon={data.iconNames.teachers} />
-    <CardTotality name="Departments" total={2011} icon={data.iconNames.departments} />
+    <CardTotality present={data.teachers.present} name="Teachers" total={data.teachers.total} icon={data.iconNames.teachers} />
+    <CardTotality name="Courses" total={2011} icon={data.iconNames.course} />
     <CardTotality name="Other Staffs" total={326} icon={data.iconNames.staff} />
   </section>
   <section />
