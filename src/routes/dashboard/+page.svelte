@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { load } from "./student";
   import CardTotality from "./../../components/dashboard/widgets/card_totality.svelte";
   import AdmissionGraph from "../../components/dashboard/widgets/earning-chart.svelte";
   import Topbar from "../../components/topbar/topbar.svelte";
