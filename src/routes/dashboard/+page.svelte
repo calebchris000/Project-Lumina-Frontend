@@ -18,7 +18,7 @@
     <CardTotality present={data.students.present} total={data.students.total} />
     <CardTotality present={data.teachers.present} name="Teachers" total={data.teachers.total} icon={data.iconNames.teachers} />
     <CardTotality name="Courses" total={data.courses.total} icon={data.iconNames.course} />
-    <CardTotality name="Other Staffs" total={326} icon={data.iconNames.staff} />
+    <CardTotality name="Other Staff" total={326} icon={data.iconNames.staff} />
   </section>
   <section />
 
