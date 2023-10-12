@@ -25,9 +25,9 @@
       Teachers
     </button>
 
-    <button class="option" class:selected={currentOption === "Staffs"} on:click={handleClick}>
+    <button class="option" class:selected={currentOption === "Staff Hub"} on:click={handleClick}>
       <iconify-icon class="icon" icon="medical-icon:i-care-staff-area" />
-      Staffs
+      Staff Hub
     </button>
 
     <button class="option" class:selected={currentOption === "Departments"} on:click={handleClick}>
