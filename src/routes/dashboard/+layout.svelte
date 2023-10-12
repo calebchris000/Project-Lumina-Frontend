@@ -18,5 +18,6 @@
   }
   .dashboard_layout {
     display: flex;
+
   }
 </style>

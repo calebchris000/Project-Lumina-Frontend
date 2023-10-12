@@ -29,7 +29,10 @@
 		"@svelteuidev/composables": "^0.15.3",
 		"@svelteuidev/core": "^0.15.3",
 		"@svelteuidev/dates": "^0.15.3",
+		"axios": "^1.5.1",
+		"chart.js": "^4.4.0",
 		"dayjs": "^1.11.10",
+		"dotenv": "^16.3.1",
 		"fusioncharts": "^3.21.1",
 		"iconify-icon": "^1.0.8",
 		"remove": "^0.1.5"

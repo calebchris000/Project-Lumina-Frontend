@@ -1,7 +1,7 @@
 <script lang="ts">
-  import EventsCalendar from "./../../components/dashboard/widgets/events_calendar.svelte";
+  import { load } from "./student";
   import CardTotality from "./../../components/dashboard/widgets/card_totality.svelte";
-  import AdmissionGraph from "../../components/dashboard/widgets/admission_graph.svelte";
+  import AdmissionGraph from "../../components/dashboard/widgets/earning-chart.svelte";
   import Topbar from "../../components/topbar/topbar.svelte";
   import { Month } from "@svelteuidev/dates";
   import type { PageData } from "./$types";
@@ -16,16 +16,17 @@
   <Topbar />
 
   <section style="grid-area: totality_holder;" class="totality-holder">
-    <CardTotality present={1201} total={data.students} />
-    <CardTotality present={1202} name="Teachers" total={data.teachers} icon={data.iconNames.teachers} />
-    <CardTotality name="Departments" total={data.departments} icon={data.iconNames.departments} />
+    <CardTotality present={data.students.present} total={data.students.total} />
+    <CardTotality present={1202} name="Teachers" total={20002} icon={data.iconNames.teachers} />
+    <CardTotality name="Departments" total={2011} icon={data.iconNames.departments} />
     <CardTotality name="Other Staffs" total={326} icon={data.iconNames.staff} />
   </section>
   <section />
 
   <AdmissionGraph />
   <!-- <EventsCalendar /> -->
-  <GenericCard style="grid-area: calendar; justify-content: center;">
+  <GenericCard style="grid-area: calendar; flex-direction: column; justify-content:flex-start">
+    <p class="upcoming-event-title">Upcoming Events</p>
     <Month class="calendar" bind:value month={value} onChange={(val) => (value = val)} />
   </GenericCard>
   <NoticeBoard />
@@ -43,13 +44,15 @@
       "graph graph graph calendar"
       " . . . notice_board";
     gap: 1rem;
-    right: 2.8rem;
+    right: 0rem;
+    padding-right: 2.2rem;
     width: calc(100% - 20rem);
   }
 
-  .calendar {
-    border: 4px solid red;
-  }
+.upcoming-event-title {
+  justify-self: left;
+  text-align: left;
+}
 
   .totality-holder {
     display: grid;
