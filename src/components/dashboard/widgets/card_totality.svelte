@@ -1,4 +1,5 @@
 <script lang="ts">
+  import '$lib/common/app.css'
   import GenericCard from "$lib/common/generic_card.svelte";
   import PieChart from "$lib/common/pie-chart/pie-chart.svelte";
   import "iconify-icon";
@@ -13,11 +14,11 @@
     <div class="card_totality_subholder">
       <iconify-icon class="icon" {icon} />
       <div>
-        <p>{name}</p>
+        <p class="text-sm">{name}</p>
         {#if present}
-          <h3>{present} | {total}</h3>
+          <h3 class="text-lg">{present} | {total}</h3>
         {:else}
-          <h3>{total}</h3>
+          <h3 class='text-lg'>{total}</h3>
         {/if}
       </div>
     </div>
@@ -38,18 +39,16 @@
   p {
     font-weight: 500;
     margin: 0;
-    font-size: 1rem;
     color: rgb(128, 128, 128);
   }
 
   h3 {
     font-weight: 500;
-    font-size: 1.4rem;
     margin: 0;
   }
 
   .icon {
-    transform: scale(2);
+    transform: scale(1.6);
     margin-left: 1rem;
   }
 </style>

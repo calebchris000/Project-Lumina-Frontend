@@ -10,7 +10,7 @@
 </script>
 
 <section style="grid-area: graph;" class="graph_holder">
-  <p>Attendance (Weekly)</p>
+  <p class="text-sm">Attendance (Weekly)</p>
   <MoreOptions />
   <Chart {data} isNavigable />
 
@@ -25,7 +25,6 @@
     /* width: 100%; */
     transition: all 0.3s ease;
     position: relative;
-    /* height: 60%; */
   }
   p {
     font-weight: 600

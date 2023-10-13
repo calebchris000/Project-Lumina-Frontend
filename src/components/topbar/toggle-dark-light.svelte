@@ -17,10 +17,8 @@ const handleClick = () => {
 </div>
 
 <style>
-  div {
-  }
   .dark-light-mode {
-    transform: scale(1.7);
+    transform: scale(1.6);
     position: relative;
     transition: all 0.3s ease;
     cursor: pointer

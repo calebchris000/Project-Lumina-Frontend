@@ -26,8 +26,8 @@
   <AdmissionGraph />
   <!-- <EventsCalendar /> -->
   <GenericCard style="grid-area: calendar; flex-direction: column; justify-content:flex-start">
-    <p class="upcoming-event-title">Upcoming Events</p>
-    <Month class="calendar" bind:value month={value} onChange={(val) => (value = val)} />
+    <p class="upcoming-event-title text-sm">Upcoming Events</p>
+    <Month class="calendar w-4" bind:value month={value} onChange={(val) => (value = val)} />
   </GenericCard>
   <NoticeBoard />
 </section>

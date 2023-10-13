@@ -17,13 +17,13 @@
     flex-direction: column;
     border: 1px solid #00000000;
     padding: 0.8rem 0.3rem; 
-    gap: 3px;
+    gap: 4px;
     height: 2.4rem;
     border-radius: 8px;
     top: 10px;
   }
   .date {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     border: 2px solid #e6e6e6;
     width: fit-content;
     padding: 0 0.2rem;
@@ -33,7 +33,7 @@
     font-weight: 500;
   }
   .notification-body {
-    font-size: 0.9rem;
+    font-size: 0.75rem;
     font-weight: 500;
     /* flex: 1 1 80%; */
     margin: 0;
