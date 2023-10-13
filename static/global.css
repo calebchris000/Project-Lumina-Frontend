@@ -25,6 +25,15 @@ section {
   color: #445569;
 }
  
-.calendar {
+
+@media screen and (max-width: 768px) {
+
+  p {
+    font-size: 0.5rem;
+  }
+
+h2, h3, button {
+  font-size: 0.7rem !important
+}
 
 }

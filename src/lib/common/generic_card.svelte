@@ -11,7 +11,7 @@
   .card_generic {
     user-select: none;
     background-color: #ffffff;
-    padding: 1.2rem 1rem;
+    padding: 18px 1rem;
     border-radius: 10px;
     display: flex;
     align-items: center;

@@ -1,16 +1,17 @@
 <script lang="ts">
   import LogoSection from "./logo_section.svelte";
-  let currentOption: string = 'Dashboard';
-  import 'iconify-icon'
+  import '$lib/common/app.css'
+  let currentOption: string = "Dashboard";
+  import "iconify-icon";
 
   const handleClick = (e) => {
     currentOption = e.target.innerText;
   };
 </script>
 
-<nav class="sidebar_container">
+<nav class="sidebar_container relative">
   <LogoSection />
-  <div class="option_holder">
+  <div class="option_holder relative">
     <button class="option" class:selected={currentOption === "Dashboard"} on:click={handleClick}>
       <iconify-icon class="icon" icon="material-symbols:space-dashboard" />
       Dashboard
@@ -45,25 +46,27 @@
       Calendar
     </button>
 
-    <div class="reserved">
+    <div class="reserved ">
       <button class="option" class:selected={currentOption === "Settings"} on:click={handleClick}>
         <iconify-icon class="icon" icon="material-symbols:settings-rounded" />
         Settings
       </button>
-
+  
       <button class="option" class:selected={currentOption === "Logout"} on:click={handleClick}>
         <iconify-icon class="icon" icon="material-symbols:logout-rounded" />
         Logout
       </button>
     </div>
   </div>
+  
+ 
 </nav>
 
 <style>
   .option {
     background-color: rgba(0, 0, 0, 0);
     color: white;
-    padding: 1rem;
+    padding: 0.8rem;
     display: flex;
     border-radius: 10px;
     gap: 10px;
@@ -71,17 +74,22 @@
     align-items: center;
     border: none;
     width: 100%;
-    font-size: 1rem;
+    font-size: 0.75rem;
     font-family: "Poppins", sans-serif;
     font-weight: 500;
     transition: all 0.3s ease;
   }
 
+  button {
+    font-size: 0.6rem;
+  }
+
   .reserved {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    margin-top: 4rem;
+    gap: 3px;
+    margin-top: auto;
+    margin-bottom: 2rem;
   }
 
   .selected {
@@ -100,12 +108,12 @@
     padding: 1rem;
     font-family: sans-serif;
     border-radius: 18px;
-    margin: 1rem 0;
     position: fixed;
     overflow-x: hidden;
     overflow-y: auto;
-    top: 0;
-    bottom: 0;
+    top: 1rem;
+    left: 1rem;
+    bottom: 1rem;
   }
   .sidebar_container::-webkit-scrollbar {
     opacity: 0;
@@ -116,10 +124,16 @@
     position: absolute;
     left: 0;
     right: 0;
+    bottom: 0;
     padding: 0 0.8rem;
-    top: 12rem;
+    top: 10rem;
     flex-direction: column;
-    gap: 10px;
+    gap: 3px;
     user-select: none;
+  }
+  @media (max-width: 768px) {
+    .sidebar_container {
+      left: -15rem;
+    }
   }
 </style>

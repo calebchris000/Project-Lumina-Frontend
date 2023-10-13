@@ -1,4 +1,5 @@
 <script lang="ts">
+  import '$lib/common/app.css'
   import Sidebar from "./../../components/sidebar/sidebar.svelte";
   import type { LayoutData } from "./$types";
   import TopBar from "../../components/topbar/topbar.svelte";

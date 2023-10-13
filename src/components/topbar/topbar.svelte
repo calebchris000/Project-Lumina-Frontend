@@ -12,49 +12,41 @@
   export let label: string = 'topbar'
 </script>
 
-<nav style={`grid-area: ${label}`} class="topbar">
-  <GenericCard style="justify-content:space-between; gap: 1rem">
-    <h2 class="dashboard_title">{title}</h2>
+<!-- <nav style={`grid-area: ${label}`} class="topbar"> -->
+  <GenericCard style={`justify-content:space-between; gap: 1rem; flex-wrap: wrap; grid-area: ${label};`}>
+    <h2 class="dashboard_title text-xl">{title}</h2>
 
-    <input class="topbar-search" type="text" placeholder="Search Student, Teacher, ID, e.t.c" bind:value={searchString} />
+    <input class="topbar-search text-xs" type="text" placeholder="Search Student, Teacher, ID, e.t.c" bind:value={searchString} />
     <div class="dashboard-profile">
       <Notifications />
       <DarkLightMode />
       <UserProfile />
     </div>
   </GenericCard>
-</nav>
+<!-- </nav> -->
 
 <style>
-  .topbar {
-    margin: 0.5rem 0;
-    border-radius: 10px;
-    color: #445569;
-    z-index: 99;
-    flex-wrap: wrap;
-  }
-
   .dashboard_title {
     font-weight: 600;
-    font-size: 1.6rem;
-    flex: 1 1 10%;
+    flex: 1 1 2%;
   }
   .dashboard-profile {
     display: flex;
     align-items: center;
     gap: 1rem;
     flex: 1 1 5%;
+    max-width: 15rem;
     justify-content: space-between;
     padding: 0 1rem;
   }
 
   .topbar-search {
     border: 2px solid #44556942;
-    padding: 0 2rem;
-    height: 3rem;
+    padding: 0 1rem;
+    height: 2.2rem;
     outline: none;
-    border-radius: 10px;
-    /* width: 50%; */
+    border-radius: 8px;
+    width: auto;
     flex: 1 1 50%;
     transition: border 0.3s ease;
     color: #445569;

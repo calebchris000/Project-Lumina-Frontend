@@ -35,6 +35,7 @@ export const load = (async () => {
     const totalTeachers = await total_teachers.data;
     const totalTeachersPresent = await total_teachers_present.data;
     const totalCourse = await total_course.data;
+
     return {
       students: {
         total: totalStudents.data.total_students,

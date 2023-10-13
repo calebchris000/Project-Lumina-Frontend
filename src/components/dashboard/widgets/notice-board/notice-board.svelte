@@ -42,7 +42,7 @@
     transition: all 0.3s ease;
     /* overflow: hidden; */
     overflow-y: scroll;
-    height: 300px;
+    height: 70%;
     position: relative;
     grid-area: totality;
   }
