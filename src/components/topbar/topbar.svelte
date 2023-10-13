@@ -1,23 +1,29 @@
 <script lang="ts">
   import UserProfile from "./user-profile.svelte";
-
   import DarkLightMode from "./toggle-dark-light.svelte";
   import user from "$lib/assets/image.png";
   import Notifications from "./notifications.svelte";
 
   import GenericCard from "$lib/common/generic_card.svelte";
   import "iconify-icon";
+  import { onDestroy } from 'svelte';
+  import { globalStore } from "../../global_store";
   export let title = "Dashboard";
   export let searchString: string = "";
   export let label: string = 'topbar'
+
+  let isDarkMode:boolean = false
+  let unsubscribe = globalStore.subscribe(value => isDarkMode = value['isDarkMode'])
+
+  onDestroy(unsubscribe)
 </script>
 
 <!-- <nav style={`grid-area: ${label}`} class="topbar"> -->
   <GenericCard style={`justify-content:space-between; gap: 1rem; flex-wrap: wrap; grid-area: ${label};`}>
-    <h2 class="dashboard_title text-xl">{title}</h2>
+    <h2 class="dashboard_title text-xl" class:isDarkMode>{title}</h2>
 
-    <input class="topbar-search text-xs" type="text" placeholder="Search Student, Teacher, ID, e.t.c" bind:value={searchString} />
-    <div class="dashboard-profile">
+    <input class="topbar-search text-xs" type="text" placeholder="Search Student, Teacher, ID, e.t.c" bind:value={searchString} class:isDarkMode/>
+    <div class="dashboard-profile" class:isDarkMode>
       <Notifications />
       <DarkLightMode />
       <UserProfile />
@@ -29,6 +35,7 @@
   .dashboard_title {
     font-weight: 600;
     flex: 1 1 2%;
+    transition: all 300ms ease;
   }
   .dashboard-profile {
     display: flex;
@@ -59,6 +66,12 @@
 
   .topbar-search::placeholder {
     color: #a8a8a8;
+  }
+
+  .isDarkMode {
+    background-color: #00162400;
+    border-color: white;
+    color: white
   }
 
   @media screen and (max-width: 1024px) {

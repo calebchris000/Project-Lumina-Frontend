@@ -7,9 +7,15 @@
   const handleClick = (e) => {
     selectedFilter = e.target.textContent;
   };
+
+  import { globalStore } from "../../../../global_store";
+  import { onDestroy } from "svelte";
+  let isDarkMode: boolean = false;
+  const unsubscribe = globalStore.subscribe((value) => (isDarkMode = value["isDarkMode"]));
+  onDestroy(unsubscribe);
 </script>
 
-<section style="grid-area: notice_board;" class="notice-board">
+<section style="grid-area: notice_board;" class="notice-board" class:isDarkMode>
   <i
     ><p class="text-sm">Notice Board</p>
     <MoreOptions /></i
@@ -51,6 +57,12 @@
     font-style: normal;
     align-items: center;
   }
+
+  .isDarkMode {
+    background-color: #00273f;
+    color: white;
+  }
+
 
   i p {
     font-weight: 500;

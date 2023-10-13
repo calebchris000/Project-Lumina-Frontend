@@ -1,22 +1,26 @@
 <script lang="ts">
   import "iconify-icon";
   export let notificationUnread: boolean = false;
+  import { onDestroy } from "svelte";
+  import { globalStore } from "../../global_store";
+  let isDarkMode: boolean = false;
+
+  const unsubscribe = globalStore.subscribe((value) => (isDarkMode = value["isDarkMode"]));
+  onDestroy(unsubscribe);
 </script>
 
-<div class="notification-holder">
+<div class="notification-holder" class:isDarkMode>
   {#if notificationUnread}
     <i class="notification-dot" />
   {/if}
   <!-- svelte-ignore a11y-click-events-have-key-events -->
   <!-- svelte-ignore a11y-no-static-element-interactions -->
   <div class="dashboard-bell-holder">
-    <iconify-icon class="dashboard-bell" icon={`ph:bell-${notificationUnread ? "fill" : "bold"}`} on:click={() => (notificationUnread = !notificationUnread)} />
+    <iconify-icon class="dashboard-bell" class:isDarkMode icon={`ph:bell-${notificationUnread ? "fill" : "bold"}`} on:click={() => (notificationUnread = !notificationUnread)} />
   </div>
 </div>
 
 <style>
-  .dashboard-bell-holder {
-  }
   .dashboard-bell {
     transform: scale(1.6);
     transition: all 0.3s ease;
@@ -42,5 +46,9 @@
     color: white;
     font-style: normal;
     font-size: 0.7rem;
+  }
+
+  .isDarkMode {
+    color: white;
   }
 </style>

@@ -1,9 +1,14 @@
 <script lang="ts">
+  import { onDestroy } from "svelte";
+  import { globalStore } from "./../../global_store";
   export let clickable: boolean = false;
-  export let style:string = ''
+  export let style: string = "";
+  let darkmode: boolean = false;
+  let unsubscribe = globalStore.subscribe((value) => (darkmode = value['isDarkMode']));
+  onDestroy(unsubscribe);
 </script>
 
-<section style={style} class="card_generic" class:clickable>
+<section {style} class="card_generic" class:clickable class:darkmode>
   <slot />
 </section>
 
@@ -22,5 +27,10 @@
   .clickable:hover {
     border: 2px solid #445569;
     cursor: pointer;
+  }
+
+  .darkmode {
+    background-color: #00273f;
+    color: white
   }
 </style>

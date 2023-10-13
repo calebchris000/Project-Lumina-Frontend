@@ -7,9 +7,16 @@
   export let present: number | string = 0;
   export let total: number = 13212;
   export let icon: string = "ph:student-bold";
+
+  import { globalStore } from "../../../global_store";
+  import { onDestroy } from "svelte";
+  let isDarkMode: boolean = false;
+  const unsubscribe = globalStore.subscribe((value) => (isDarkMode = value["isDarkMode"]));
+  onDestroy(unsubscribe);
+
 </script>
 
-<div class="card_totality_holder">
+<div class="card_totality_holder" class:isDarkMode>
   <GenericCard clickable={true}>
     <div class="card_totality_subholder">
       <iconify-icon class="icon" {icon} />
@@ -50,5 +57,9 @@
   .icon {
     transform: scale(1.6);
     margin-left: 1rem;
+  }
+
+  .isDarkMode * {
+    color: white
   }
 </style>

@@ -3,13 +3,18 @@
   import '$lib/common/app.css'
   let currentOption: string = "Dashboard";
   import "iconify-icon";
+  import { globalStore } from "../../global_store";
+  import { onDestroy } from "svelte";
+  let isDarkMode: boolean = false;
+  const unsubscribe = globalStore.subscribe((value) => (isDarkMode = value["isDarkMode"]));
+  onDestroy(unsubscribe);
 
   const handleClick = (e) => {
     currentOption = e.target.innerText;
   };
 </script>
 
-<nav class="sidebar_container relative">
+<nav class="sidebar_container relative" class:isDarkMode>
   <LogoSection />
   <div class="option_holder relative">
     <button class="option" class:selected={currentOption === "Dashboard"} on:click={handleClick}>
@@ -130,6 +135,10 @@
     flex-direction: column;
     gap: 3px;
     user-select: none;
+  }
+  .isDarkMode {
+    background-color: #00273f;
+    color: white
   }
   @media (max-width: 768px) {
     .sidebar_container {

@@ -1,14 +1,17 @@
 <script lang="ts">
+  import { globalStore } from "../../global_store";
   import "iconify-icon";
   export let isLightMode: boolean = true;
+
 const handleClick = () => {
   isLightMode = !isLightMode
+  globalStore.set({isDarkMode: isLightMode})
 }
 </script>
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <!-- svelte-ignore a11y-no-static-element-interactions -->
-<div on:click={handleClick}>
+<div on:click={handleClick} class:isLightMode>
   {#if isLightMode}
     <iconify-icon class="dark-light-mode" icon="tabler:sun-filled" />
   {:else}
@@ -22,5 +25,8 @@ const handleClick = () => {
     position: relative;
     transition: all 0.3s ease;
     cursor: pointer
+  }
+  .isLightMode {
+    color: white
   }
 </style>
