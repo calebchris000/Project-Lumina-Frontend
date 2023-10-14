@@ -3,7 +3,7 @@
   let body: string = `A friendly reminder to read your books!`;
   export let Person: string = "James Wood";
 
-  import { globalStore } from "../../../../global_store";
+  import { globalStore } from "../../../../lib/common/global_store";
   import { onDestroy } from "svelte";
   let isDarkMode: boolean = false;
   const unsubscribe = globalStore.subscribe((value) => (isDarkMode = value["isDarkMode"]));

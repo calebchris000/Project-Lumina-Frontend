@@ -9,7 +9,14 @@
 		"skipLibCheck": true,
 		"sourceMap": true,
 		"suppressImplicitAnyIndexErrors": true,
-		"strict": false
+		"strict": false,
+		"baseUrl": ".",
+		"paths": {
+		  "./$types": [".svelte-kit/types/src/routes/dashboard/$types"],
+		  "$lib": ["src/lib"],
+		  "$lib/*": ["src/lib/*"],
+		  "$components/*": ["src/components/*"]
+		}
 	}
 	// Path aliases are handled by https://kit.svelte.dev/docs/configuration#alias
 	//

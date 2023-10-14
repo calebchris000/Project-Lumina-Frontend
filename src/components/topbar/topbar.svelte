@@ -5,9 +5,8 @@
   import Notifications from "./notifications.svelte";
 
   import GenericCard from "$lib/common/generic_card.svelte";
-  import "iconify-icon";
   import { onDestroy } from 'svelte';
-  import { globalStore } from "../../global_store";
+  import { globalStore } from "$lib/common/global_store";
   export let title = "Dashboard";
   export let searchString: string = "";
   export let label: string = 'topbar'

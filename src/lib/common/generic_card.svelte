@@ -1,6 +1,6 @@
 <script lang="ts">
   import { onDestroy } from "svelte";
-  import { globalStore } from "./../../global_store";
+  import { globalStore } from "./global_store";
   export let clickable: boolean = false;
   export let style: string = "";
   let darkmode: boolean = false;

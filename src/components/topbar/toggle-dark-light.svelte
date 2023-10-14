@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { globalStore } from "../../global_store";
-  import "iconify-icon";
+  import { globalStore } from "$lib/common/global_store";
+  import 'iconify-icon'
   export let isLightMode: boolean = true;
 
 const handleClick = () => {

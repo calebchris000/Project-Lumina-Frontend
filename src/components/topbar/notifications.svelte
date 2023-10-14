@@ -2,7 +2,7 @@
   import "iconify-icon";
   export let notificationUnread: boolean = false;
   import { onDestroy } from "svelte";
-  import { globalStore } from "../../global_store";
+  import { globalStore } from "../../lib/common/global_store";
   let isDarkMode: boolean = false;
 
   const unsubscribe = globalStore.subscribe((value) => (isDarkMode = value["isDarkMode"]));

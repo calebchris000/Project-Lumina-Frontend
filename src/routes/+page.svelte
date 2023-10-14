@@ -1,6 +1,5 @@
-<script>
-    import Sidebar from "../components/Sidebar/Sidebar.svelte";
+<script lang="ts">
+  import Sidebar from "$components/sidebar/sidebar.svelte";
 </script>
-
 
 <Sidebar />

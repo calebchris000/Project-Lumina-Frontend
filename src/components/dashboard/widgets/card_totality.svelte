@@ -8,7 +8,7 @@
   export let total: number = 13212;
   export let icon: string = "ph:student-bold";
 
-  import { globalStore } from "../../../global_store";
+  import { globalStore } from "../../../lib/common/global_store";
   import { onDestroy } from "svelte";
   let isDarkMode: boolean = false;
   const unsubscribe = globalStore.subscribe((value) => (isDarkMode = value["isDarkMode"]));
