@@ -9,6 +9,15 @@
     font-family: "Poppins", sans-serif;
     user-select: none;
     overflow: hidden;
+    height: 100vh;
+    background-color: #f1f4fa;
+}
+
+:root, body {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
 }
 
 p, button {

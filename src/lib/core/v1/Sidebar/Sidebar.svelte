@@ -8,7 +8,7 @@
   }
 </script>
 
-<nav class="sidebar bg-[#445569] w-60 border overflow-y-scroll flex flex-col border-[#445569] h-[96vh] rounded-xl p-3 ml-4 absolute top-[50%] translate-y-[-50%]">
+<nav class="sidebar bg-[#445569] w-60 border overflow-y-scroll flex flex-col border-[#445569] rounded-xl p-3">
   <section>
     <Logo />
 

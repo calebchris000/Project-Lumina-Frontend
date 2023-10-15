@@ -5,7 +5,7 @@ export default defineConfig({
 	plugins: [sveltekit()],
 	resolve: {
 		alias: {
-			// "$static": "/static"
+			"$components": "/src/components"
 		},
 	  },
 });
