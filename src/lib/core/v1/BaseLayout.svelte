@@ -1,7 +1,16 @@
 <script lang="ts">
-  export let classes: string = ""
+  export let className: string = ""
+  export let scrollable: boolean = false
 </script>
 
-<main class={`w-full rounded-xl flex flex-col ${classes}`}>
+<main class={`w-full rounded-xl flex flex-col ${className}`} class:scrollable>
   <slot />
 </main>
+
+
+<style>
+  .scrollable {
+    overflow-y: scroll;
+    scrollbar-width: none;
+  }
+</style>

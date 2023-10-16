@@ -1,10 +1,12 @@
 <script lang="ts">
+  import { goto } from "$app/navigation";
   import "$lib/app.css";
   import Button from "./Button.svelte";
   import Logo from "./Logo.svelte";
   let selectedItem: string = "Dashboard";
   function handleClick(e: any) {
     selectedItem = e.target.value;
+    goto('/v1/' + selectedItem.toLowerCase())
   }
 </script>
 

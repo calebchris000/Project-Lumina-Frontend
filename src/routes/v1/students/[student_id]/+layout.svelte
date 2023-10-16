@@ -4,6 +4,5 @@
     export let data: LayoutData;
 </script>
 
-<main>
-    <slot></slot>
-</main>
+
+<slot></slot>

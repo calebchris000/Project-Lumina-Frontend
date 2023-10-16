@@ -6,7 +6,7 @@
   export let data: PageData;
 </script>
 
-<BaseLayout classes="gap-4">
+<BaseLayout className="gap-4">
   <TopBar />
   <div class="summary-holder flex gap-4 flex-wrap">
     <SummaryCard icon="ph:student-bold" data={data.students.present} total={data.students.total}/>
