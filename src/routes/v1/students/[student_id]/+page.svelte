@@ -10,10 +10,10 @@
   $: currentStudent = $studentStore.all_students[$page.params.student_id];
 </script>
 
-<InfoCard className="flex-1 basis-[60%] transition-all">
+<InfoCard className="flex-1 basis-[60%] flex flex-col gap-10 transition-all">
   <section class="bg-[#445569] rounded-tl-xl rounded-tr-xl px-4 py-2 m-[-1rem]">
     <section class="w-full p-2 flex items-center gap-6">
-      <img class="w-20 cursor-pointer rounded-full" src={$studentStore.current_img} alt="" />
+      <img class="w-20 cursor-pointer rounded-full" src={currentStudent.profile_image} alt="" />
       <div class="flex flex-col">
         <p class="font-medium text-white text-3xl">{currentStudent.first_name} {currentStudent.last_name}</p>
         <p class="text-white text-xs">Grade {currentStudent.grade} &nbsp; | &nbsp; Student ID: {currentStudent.student_id}</p>
@@ -21,7 +21,7 @@
     </section>
   </section>
 
-  <section class="border-2 border-[#ebebeb] rounded-lg relative top-4 p-3">
+  <InfoCard className="border-2 border-[#ebebeb] mt-4 rounded-lg p-3">
     <div class="flex items-center justify-between">
       <h3 class="text-[#445569] text-lg font-medium">Basic Details</h3>
       <ThreeDotOption />
@@ -62,6 +62,12 @@
         {/if}
       </div>
     </section>
-  </section>
+  </InfoCard>
+
+  <InfoCard className="border-2 text-[#445569] font-medium text-lg">
+    <section>
+      Attendance
+    </section>
+  </InfoCard>
 </InfoCard>
 

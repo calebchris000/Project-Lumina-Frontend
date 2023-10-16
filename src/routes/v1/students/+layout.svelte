@@ -5,23 +5,34 @@
   import TopBar from "$lib/core/v1/TopBar/TopBar.svelte";
   import type { LayoutData } from "./$types";
   import StudentList from "./StudentList.svelte";
-  import student_image from "$lib/assets/student-image.png";
-  import student_image2 from "$lib/assets/student-image2.png";
-  import student_image3 from "$lib/assets/student-image3.png";
   export let data: LayoutData;
+  let students: any = data.results;
+  $: students = data.results;
+
+  let filtered = students;
+  function handleInput(e: any) {
+    filtered = students.filter((item) => {
+      const fullName = `${item.first_name} ${item.last_name}`.toLowerCase()
+      return (
+        item.student_id.includes(e.target.value) ||
+        fullName.includes(e.target.value.toLowerCase())
+      );
+    });
+  }
+
+  $: console.log("Filtered", filtered);
 </script>
 
 <main class="flex w-full">
   <BaseLayout scrollable={true} className="gap-4 overflow-auto transition-all">
     <TopBar title="Students" />
-
     <section class="flex gap-4 flex-wrap">
       <InfoCard className="flex-1 basis-[30%] transition-all">
         <div class="flex items-center m-0 gap-4 justify-between">
           <h2 class="text-lg font-medium text-[#445569]">Students</h2>
           <ThreeDotOption />
         </div>
-        <input class="rounded-lg px-4 p-2 outline-none border-2 border-[#ebebeb]" type="text" placeholder="Search by name or ID" />
+        <input on:input={handleInput} class="rounded-lg px-4 p-2 outline-none border-2 border-[#ebebeb]" type="text" placeholder="Search by name or ID" />
 
         <section class="w-full">
           <div class="flex my-4 w-full gap-5 justify-between text-[#445569] font-medium">
@@ -32,9 +43,13 @@
           </div>
 
           <div class="flex flex-col gap-2 mt-7">
-            <StudentList img_url={student_image} name="Emily B. Jones" student_id="ST43236165" />
-            <StudentList img_url={student_image2} name="Eleanor G. Hart" student_id="ST68467278" />
-            <StudentList img_url={student_image3} name="Henry A. Chester" student_id="ST43236165" />
+            {#if filtered && filtered.length !== 0}
+              {#each filtered as student (student.id)}
+                <StudentList img_url={student.profile_image} name={`${student.first_name} ${student.last_name}`} student_id={student.student_id} />
+              {/each}
+            {:else}
+              <p>0 Students</p>
+            {/if}
           </div>
         </section>
       </InfoCard>
