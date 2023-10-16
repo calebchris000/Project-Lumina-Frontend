@@ -1,6 +1,6 @@
 <script lang="ts">
   import "iconify-icon";
-  export const title: string = "Dashboard";
+  export let title: string = "Dashboard";
   import image from '$lib/assets/image.png'
 </script>
 
