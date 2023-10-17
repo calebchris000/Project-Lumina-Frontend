@@ -1,0 +1,12 @@
+title = "System Configuration"
+
+
+[school]
+name = 'Lumina'
+location = 'Allen Avenue'
+founded = 1991
+motto = 'Learning For Greatness'
+mascot = "The Soaring Eagles"
+
+[school.color]
+blue = '#445569'

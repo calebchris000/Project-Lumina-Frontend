@@ -24,6 +24,7 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"iconify-icon": "^1.0.8"
+		"iconify-icon": "^1.0.8",
+		"smol-toml": "^1.1.2"
 	}
 }
