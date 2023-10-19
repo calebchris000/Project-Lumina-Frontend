@@ -6,7 +6,6 @@ import { studentStore } from "../studentStore";
 let store;
 export const load = (async ({ params }) => {
   studentStore.subscribe((items) => (store = items));
-  console.log("PAGES",store.all_students);
   
   if(params.student_id in store.all_students) {
     return

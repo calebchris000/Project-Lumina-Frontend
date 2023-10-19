@@ -10,7 +10,6 @@ export const load = (async () => {
         throw new Error('Error: ' + response.status)
     }
     const result = await response.data;
-    console.log('STUDENTS', result)
     return result;
   } catch (error) {
     console.error(error);

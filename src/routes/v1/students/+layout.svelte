@@ -20,7 +20,7 @@
     });
   }
 
-  $: console.log("Filtered", filtered);
+let menuClick = false
 </script>
 
 <main class="flex w-full">
@@ -28,9 +28,9 @@
     <TopBar title="Students" />
     <section class="flex gap-4 flex-wrap">
       <InfoCard className="flex-1 basis-[30%] transition-all">
-        <div class="flex items-center m-0 gap-4 justify-between">
+        <div class="flex relative items-center m-0 gap-4 justify-between">
           <h2 class="text-lg font-medium text-[#445569]">Students</h2>
-          <ThreeDotOption />
+          <ThreeDotOption clicked={menuClick}/>
         </div>
         <input on:input={handleInput} class="rounded-lg px-4 p-2 outline-none border-2 border-[#ebebeb]" type="text" placeholder="Search by name or ID" />
 

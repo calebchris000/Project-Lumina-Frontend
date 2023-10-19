@@ -1,4 +1,5 @@
 <script lang="ts">
+  import AttendanceGraph from "./GraphService/Attendance/AttendanceGraph.svelte";
   import type { PageData } from "./$types";
   export let data: PageData;
   import "iconify-icon";
@@ -6,6 +7,7 @@
   import InfoCard from "$components/InfoCard.svelte";
   import ThreeDotOption from "$components/ThreeDotOption.svelte";
   import { studentStore } from "../studentStore";
+  import Graph from "./GraphService/Graph.svelte";
   let currentStudent: any;
   $: currentStudent = $studentStore.all_students[$page.params.student_id];
 </script>
@@ -64,10 +66,6 @@
     </section>
   </InfoCard>
 
-  <InfoCard className="border-2 text-[#445569] font-medium text-lg">
-    <section>
-      Attendance
-    </section>
-  </InfoCard>
+<Graph />
 </InfoCard>
 
