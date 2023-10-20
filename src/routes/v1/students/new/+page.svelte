@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { goto } from '$app/navigation';
   import { browser } from "$app/environment";
   import { enhance } from "$app/forms";
   import InfoCard from "$components/InfoCard.svelte";
@@ -25,7 +26,6 @@
 
     if (selectedFile) {
       const imageUrl = URL.createObjectURL(selectedFile);
-      console.log(imageUrl);
       base64ProfileImage = selectedFile;
 
       // fileToBytes(selectedFile, (base64String: string) => {
@@ -56,12 +56,21 @@
 
   async function handleSubmitAction(e) {
     const formData = new FormData(e.target);
-    const ibbURL = await uploadImage(base64ProfileImage);
+    // const ibbURL = await uploadImage(base64ProfileImage);
 
-    const result = UploadFormSubmission(formData)
-    console.log(result)
-    // formData.append('profile_image', ibbURL);
-
+    let formObject = {};
+    for (const [key, value] of formData.entries()) {
+      formObject[key] = value;
+    }
+    console.log(formObject)
+    const results = await UploadFormSubmission(formObject)
+    if(results.status_code === 201) {
+      console.log('Trigger reload')
+      if(browser) {
+        goto('/v1/students')
+      }
+      console.log(results)
+    }
   }
 </script>
 
@@ -77,7 +86,7 @@
       <!-- svelte-ignore a11y-click-events-have-key-events -->
       <div class="flex flex-col gap-2 items-center mb-3 cursor-pointer" on:click={triggerImage}>
         <img class="w-20 border rounded-full self-center" id="image-placeholder" src={add_image} alt="" />
-        <input name="profile_image" on:change={getImage} style="display: none" type="file" id="fileInput" />
+        <input on:change={getImage} style="display: none" type="file" id="fileInput" />
       </div>
       <div class="flex gap-2">
         <button on:click={triggerImage} id="add-img-text" class="text-xs font-medium m-0 text-[#445569]">Add Profile Image</button>
@@ -91,7 +100,7 @@
         <input
           class=" placeholder:text-sm text-sm outline-none border-2 text-[#445569] p-1 border-gray-200 hover:border-gray-400 rounded-md py-2"
           type="text"
-          name="firstname"
+          name="first_name"
           placeholder="e.g, John"
         />
       </div>
@@ -101,7 +110,7 @@
         <input
           class=" placeholder:text-sm text-sm outline-none border-2 text-[#445569] p-1 border-gray-200 hover:border-gray-400 rounded-md py-2"
           type="text"
-          name="lastname"
+          name="last_name"
           placeholder="e.g, Doe"
         />
       </div>
@@ -130,7 +139,7 @@
           bind:value={currentDate}
           class=" placeholder:text-sm text-sm outline-none border-2 text-[#445569] p-1 border-gray-200 hover:border-gray-400 rounded-md py-2"
           type="date"
-          name="admission_date"
+          name="date_of_enrollment"
         />
       </div>
 
@@ -162,7 +171,7 @@
         <input
           class=" placeholder:text-sm text-sm outline-none border-2 text-[#445569] p-1 border-gray-200 hover:border-gray-400 rounded-md py-2"
           type="text"
-          name="address"
+          name="home_address"
         />
       </div>
 
@@ -171,7 +180,7 @@
         <input
           class=" placeholder:text-sm text-sm outline-none border-2 text-[#445569] p-1 border-gray-200 hover:border-gray-400 rounded-md py-2"
           type="text"
-          name="contact"
+          name="user_contact"
         />
       </div>
     </section>
