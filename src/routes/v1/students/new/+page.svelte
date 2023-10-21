@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { goto } from '$app/navigation';
+  import { goto } from "$app/navigation";
   import { browser } from "$app/environment";
   import { enhance } from "$app/forms";
   import InfoCard from "$components/InfoCard.svelte";
@@ -10,11 +10,18 @@
   import fileToBytes from "$lib/shared/fileToBase64";
   import { uploadImage } from "./uploadProfileImage";
   import UploadFormSubmission from "./form/UploadFormSubmission";
+  import FlashNotification from "$lib/core/v1/Notification/FlashNotification.svelte";
+  import Toast from "$lib/core/v1/Notification/Toast.svelte";
+  import { store } from "src/store/store";
   export let data: PageData;
   let menuClick: boolean = false;
   let currentDate = new Date().toISOString().split("T")[0];
   let base64ProfileImage: string = "";
+  let darkMode: boolean = false;
 
+  store.subscribe((defaults) => {
+    darkMode = defaults.theme.darkMode;
+  });
   function triggerImage() {
     if (browser) {
       document.getElementById("fileInput").click();
@@ -27,11 +34,6 @@
     if (selectedFile) {
       const imageUrl = URL.createObjectURL(selectedFile);
       base64ProfileImage = selectedFile;
-
-      // fileToBytes(selectedFile, (base64String: string) => {
-      //   // console.log("base64String", base64String);
-      //   base64ProfileImage = base64String
-      // });
 
       if (browser) {
         const placeholder: any = document.getElementById("image-placeholder");
@@ -62,14 +64,25 @@
     for (const [key, value] of formData.entries()) {
       formObject[key] = value;
     }
-    console.log(formObject)
-    const results = await UploadFormSubmission(formObject)
-    if(results.status_code === 201) {
-      console.log('Trigger reload')
-      if(browser) {
-        goto('/v1/students')
+    console.log(formObject);
+    const results = await UploadFormSubmission(formObject);
+    if (results.status_code === 201) {
+      if (browser) {
+        goto("/v1/students");
       }
-      console.log(results)
+      store.update((defaults) => {
+        defaults.toast.showToast = true;
+        defaults.toast.type = "success";
+        defaults.toast.message = `Success: ${results.message}`;
+        return defaults;
+      });
+    } else {
+      store.update((defaults) => {
+        defaults.toast.showToast = true;
+        defaults.toast.type = "error";
+        defaults.toast.message = results;
+        return defaults;
+      });
     }
   }
 </script>
@@ -80,7 +93,7 @@
     <ThreeDotOption options={[["Undo", "/v1/students"]]} clicked={menuClick} />
   </div>
 
-  <form on:submit|preventDefault={handleSubmitAction} method="post" class="">
+  <form class:darkMode on:submit|preventDefault={handleSubmitAction} method="post" class="">
     <!-- svelte-ignore a11y-no-static-element-interactions -->
     <section class="flex flex-col items-center mb-4">
       <!-- svelte-ignore a11y-click-events-have-key-events -->
@@ -187,3 +200,19 @@
     <Button textContent="Create Student" className="mt-3 w-full py-3 font-semibold" />
   </form>
 </InfoCard>
+
+<style>
+  .darkMode {
+    background-color: #28353f;
+
+    transition: all 200ms ease;
+    color: white;
+    border-color: #00000000;
+  }
+
+  .darkMode * {
+    color: white;
+    background-color: #28353f;
+  }
+
+</style>

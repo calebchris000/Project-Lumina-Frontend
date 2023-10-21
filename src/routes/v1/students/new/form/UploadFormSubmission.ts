@@ -9,8 +9,8 @@ const UploadFormSubmission = async (formData: object) => {
 
     return results;
   } catch (error) {
-    console.error(error);
-    throw new Error(error);
+    // console.error(error);
+    return error
   }
 };
 

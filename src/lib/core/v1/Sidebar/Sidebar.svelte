@@ -3,14 +3,21 @@
   import "$lib/app.css";
   import Button from "./Button.svelte";
   import Logo from "./Logo.svelte";
+  import { store } from "src/store/store";
+
+  let darkMode: boolean = false;
+
+  store.subscribe((defaults) => {
+    darkMode = defaults.theme.darkMode;
+  });
   let selectedItem: string = "Dashboard";
   function handleClick(e: any) {
     selectedItem = e.target.value;
-    goto('/v1/' + selectedItem.toLowerCase())
+    goto("/v1/" + selectedItem.toLowerCase());
   }
 </script>
 
-<nav class="sidebar bg-[#445569] w-60 border overflow-y-scroll flex flex-col border-[#445569] rounded-xl p-3">
+<nav class:darkMode class="sidebar bg-[#445569] w-60 border overflow-y-scroll flex flex-col border-[#445569] rounded-xl p-3">
   <section>
     <Logo />
 
@@ -34,4 +41,11 @@
     scrollbar-width: none;
   }
 
+  .darkMode {
+    background-color: #28353f;
+
+    transition: all 200ms ease;
+    color: white;
+    border-color: #00000000;
+  }
 </style>

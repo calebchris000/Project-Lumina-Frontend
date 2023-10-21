@@ -9,6 +9,11 @@
   import { studentStore } from "../studentStore";
   import Graph from "./GraphService/Graph.svelte";
   let currentStudent: any;
+  import { store } from "src/store/store";
+  let darkMode: boolean = false;
+  store.subscribe((defaults) => {
+    darkMode = defaults.theme.darkMode;
+  });
   $: currentStudent = $studentStore.all_students[$page.params.student_id];
 </script>
 
