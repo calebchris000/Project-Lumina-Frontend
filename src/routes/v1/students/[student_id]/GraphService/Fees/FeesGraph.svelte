@@ -7,7 +7,7 @@
   import { onMount } from "svelte";
   let clickedFilter: string = "Year";
   import Graph from "../Graph.svelte";
-  import AttendanceOption from "./AttendanceOption.svelte";
+  import FeesOption from "./FeesOption.svelte";
 
   onMount(async () => {
     await import("apexcharts").then((module) => {
@@ -57,7 +57,7 @@
 <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <InfoCard className="mt-16">
-  <AttendanceOption on:currentIndex={handleSelectedOption}/>
+  <FeesOption on:currentIndex={handleSelectedOption}/>
   <section class="flex  items-center justify-between">
     <section class="flex items-center justify-between flex-1 mr-10 gap-10">
       <h3 class="text-[#445569]">Attendance</h3>

@@ -6,15 +6,22 @@
   import { store } from "src/store/store";
 
   let darkMode: boolean = false;
-
+  let selectedItem: string;
   store.subscribe((defaults) => {
     darkMode = defaults.theme.darkMode;
+    selectedItem = defaults.sidebar.selectedTab
   });
-  let selectedItem: string = "Dashboard";
+  
   function handleClick(e: any) {
-    selectedItem = e.target.value;
+   let selectedItem = e.target.value;
+    store.update(defaults => {
+      defaults.sidebar.selectedTab = selectedItem
+      return defaults
+    })
     goto("/v1/" + selectedItem.toLowerCase());
   }
+
+  $: console.log($store.sidebar.selectedTab)
 </script>
 
 <nav class:darkMode class="sidebar bg-[#445569] w-60 border overflow-y-scroll flex flex-col border-[#445569] rounded-xl p-3">
