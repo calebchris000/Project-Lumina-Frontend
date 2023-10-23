@@ -1,8 +1,14 @@
 import axios from "axios";
 import { env } from "$env/dynamic/public";
 import { page } from "$app/stores";
+import { store } from "src/store/store";
 
 let student_id: string = "";
+let monthlyData: object;
+
+store.subscribe((value) => {
+  monthlyData = value.graph.attendance.class.monthly;
+});
 
 const GetMonthlyAttendance = async (year: number = 2023, month: number = new Date().getMonth() + 1) => {
   try {
@@ -10,13 +16,17 @@ const GetMonthlyAttendance = async (year: number = 2023, month: number = new Dat
       student_id = value.params.student_id;
     });
 
-    const url = env.PUBLIC_API_URL;
-    const endpoint = `/api/v1/student-attendance/${student_id}/monthly?year=${year}&month=${month}`;
+    if (Array.isArray(monthlyData)) {
+      const url = env.PUBLIC_API_URL;
+      const endpoint = `/api/v1/student-attendance/${student_id}/monthly?year=${year}&month=${month}`;
 
-    const response = await axios.get(url + endpoint);
-    console.log(response.data);
-    const results = response.data;
-    return results;
+      const response = await axios.get(url + endpoint);
+      const results = response.data;
+      store.update((defaults) => {
+        defaults.graph.attendance.class.monthly = results;
+        return defaults;
+      });
+    }
   } catch (error) {
     return error;
   }

@@ -1,9 +1,11 @@
 <script lang="ts">
   import AttendanceMonthly from "./AttendanceMonthly";
   import { onMount } from "svelte";
+  import { store } from 'src/store/store';
 
   onMount(async () => {
-    const AttendanceData = await AttendanceMonthly(2023);
+    await AttendanceMonthly(2023);
+    let AttendanceData: {} = $store.graph.attendance.class.monthly;
     let validData: boolean = typeof AttendanceData === "object";
     // const emptyData: number[]
     await import("apexcharts").then((module) => {
