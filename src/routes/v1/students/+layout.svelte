@@ -5,6 +5,7 @@
   import TopBar from "$lib/core/v1/TopBar/TopBar.svelte";
   import type { LayoutData } from "./$types";
   import StudentList from "./StudentList.svelte";
+  import { store } from "src/store/store";
   export let data: LayoutData;
   let students: any = data.results;
   $: students = data.results;
@@ -12,15 +13,19 @@
   let filtered = students;
   function handleInput(e: any) {
     filtered = students.filter((item) => {
-      const fullName = `${item.first_name} ${item.last_name}`.toLowerCase()
-      return (
-        item.student_id.includes(e.target.value) ||
-        fullName.includes(e.target.value.toLowerCase())
-      );
+      const fullName = `${item.first_name} ${item.last_name}`.toLowerCase();
+      return item.student_id.includes(e.target.value) || fullName.includes(e.target.value.toLowerCase());
     });
   }
 
-let menuClick = false
+  let menuClick = false;
+
+  if ($store.sidebar.selectedTab !== "Students") {
+    store.update((item) => {
+      item.sidebar.selectedTab = "Students";
+      return item;
+    });
+  }
 </script>
 
 <main class="flex w-full">
@@ -30,7 +35,7 @@ let menuClick = false
       <InfoCard className="flex-1 basis-[30%] transition-all">
         <div class="flex relative items-center m-0 gap-4 justify-between">
           <h2 class="text-lg font-medium text-[#445569]">Students</h2>
-          <ThreeDotOption clicked={menuClick}/>
+          <ThreeDotOption clicked={menuClick} />
         </div>
         <input on:input={handleInput} class="rounded-lg px-4 p-2 outline-none border-2 border-[#ebebeb]" type="text" placeholder="Search by name or ID" />
 
