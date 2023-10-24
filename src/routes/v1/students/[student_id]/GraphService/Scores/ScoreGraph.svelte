@@ -7,7 +7,7 @@
   import { onMount } from "svelte";
   let clickedFilter: string = "Year";
   import Graph from "../Graph.svelte";
-  import AttendanceOption from "./AttendanceOption.svelte";
+  import ScoreOption from "./ScoreOption.svelte";
 
   onMount(async () => {
     await import("apexcharts").then((module) => {
@@ -16,29 +16,25 @@
       var options = {
         chart: {
           type: "bar",
-          fontFamily: 'Poppins, san-serif',
+          fontFamily: "Poppins, san-serif",
           // width: 30
         },
         series: [
           {
-            name: "Present",
-            data: [108, 99, 65, 65, 78, 116, 120, 120, 119, 108, 99, 65],
-          },
-          {
-            name: "Absent",
-            data: [12, 21, 55, 55, 42, 4, 0, 0, 1, 12, 21, 55],
+            name: "Exam",
+            data: [108, 99, 65, 65],
           },
         ],
 
         xaxis: {
-          categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"],
+          categories: ["1st Term", "2nd Term", "3rd Term", "4th Term"],
         },
         yaxis: {
           title: {
-            text: "Days",
+            text: "Score",
           },
         },
-          colors: ["#037e03", "#848484"],
+        colors: ["#037e03", "#848484"],
       };
 
       var chart = new ApexCharts(document.querySelector("#chart"), options);
@@ -46,19 +42,18 @@
     });
   });
 
-  let selectedOption: number = 0
+  let selectedOption: number = 0;
 
   function handleSelectedOption(e) {
-    selectedOption = e.detail.index
+    selectedOption = e.detail.index;
   }
-
 </script>
 
 <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <InfoCard className="mt-16">
-  <AttendanceOption on:currentIndex={handleSelectedOption}/>
-  <section class="flex  items-center justify-between">
+  <ScoreOption on:currentIndex={handleSelectedOption} />
+  <section class="flex items-center justify-between">
     <section class="flex items-center justify-between flex-1 mr-10 gap-10">
       <h3 class="text-[#445569]">Attendance</h3>
 
@@ -78,7 +73,6 @@
   <div class="chart" id="chart" />
 </InfoCard>
 
-
 <style>
   .current {
     background-color: #445569;
@@ -89,6 +83,6 @@
   }
 
   .chart {
-    font-family: "Poppins",sans-serif;
+    font-family: "Poppins", sans-serif;
   }
 </style>

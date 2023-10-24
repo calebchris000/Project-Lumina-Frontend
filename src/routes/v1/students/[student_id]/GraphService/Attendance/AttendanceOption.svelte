@@ -1,12 +1,13 @@
 <script lang="ts">
   import { createEventDispatcher } from "svelte";
   const dispatch = createEventDispatcher();
-  export let index: number = 0;
+  export let index: number = 1;
   function handleSelect(e) {
     const selectedIndex = e.target.getAttribute("data-index");
     index = Number(selectedIndex);
     dispatch("currentIndex", { index });
   }
+
 </script>
 
 <section class="flex gap-3 text-[#445569]">
@@ -20,3 +21,4 @@
     color: white;
   }
 </style>
+
