@@ -22,6 +22,12 @@ let defaults = {
       },
     },
   },
+
+  dashboard: {
+    calendar: {
+      events: [],
+    },
+  },
 };
 
 export const store = writable(defaults);

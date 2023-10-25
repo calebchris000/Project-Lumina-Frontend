@@ -64,7 +64,6 @@
     for (const [key, value] of formData.entries()) {
       formObject[key] = value;
     }
-    console.log(formObject);
     const results = await UploadFormSubmission(formObject);
     if (results.status_code === 201) {
       if (browser) {

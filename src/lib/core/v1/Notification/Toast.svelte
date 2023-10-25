@@ -22,7 +22,6 @@
 
   function triggerVisible() {
     clearTimeout(timeout);
-    console.log("showToast");
     timeout = setTimeout(() => {
       showToast = false;
       store.update((defaults) => {

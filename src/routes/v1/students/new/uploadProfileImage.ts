@@ -7,7 +7,6 @@ export const uploadImage = async (base64ImageString: string) => {
     const imgUploadUrl = "https://api.imgbb.com/1/upload";
     const formData = new FormData();
     formData.append("image", base64ImageString);
-    console.log(formData)
     const response = await axios.post(imgUploadUrl, formData, {
       params: {
         key: API_KEY,

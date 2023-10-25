@@ -1,6 +1,6 @@
 <script lang="ts">
   export let className: string = ""
-  export let scrollable: boolean = false
+  export let scrollable: boolean = true
 </script>
 
 <main class={`w-full rounded-xl flex flex-col ${className}`} class:scrollable>
