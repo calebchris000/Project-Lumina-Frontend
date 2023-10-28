@@ -62,7 +62,7 @@
     <SummaryCard title="Weekly Earnings" singleNumber={true} icon="fa6-solid:money-check-dollar" total="$12,500" />
   </div>
     <AdmissionGraph />
-    <section class="flex flex-col col-[5/-1]">
+    <section class="flex flex-col">
       <InfoCard className="bg-white">
         <div class="calendar justify-center" id="calendar" />
 

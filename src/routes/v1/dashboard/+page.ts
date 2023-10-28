@@ -1,3 +1,4 @@
+import { store } from "src/store/store";
 import type { PageLoad } from "./$types";
 import axios, { HttpStatusCode } from "axios";
 export const load = (async () => {
@@ -8,7 +9,7 @@ export const load = (async () => {
       axios.get(url + "/api/v1/students/total"),
       axios.get(url + "/api/v1/teacher-attendances/present/today"),
       axios.get(url + "/api/v1/teachers/total"),
-      axios.get(url + "/api/v1/course/total")
+      axios.get(url + "/api/v1/course/total"),
     ];
 
     const [students_present, total_students, teachers_present, total_teachers, courses] = await Promise.all(promises);
@@ -26,45 +27,50 @@ export const load = (async () => {
       throw new Error(`Error: ${total_teachers.status}`);
     }
     if (courses.status !== 200) {
-        throw new Error(`Error: ${total_teachers.status}`);
-      }
+      throw new Error(`Error: ${total_teachers.status}`);
+    }
 
     const [studentPresent, totalStudents, teachersPresent, totalTeachers, totalCourses] = [
       await students_present.data,
       await total_students.data,
       await teachers_present.data,
       await total_teachers.data,
-      await courses.data
+      await courses.data,
     ];
 
     return {
       students: {
         present: studentPresent.data || 0,
-        total: totalStudents.data || 0
+        total: totalStudents.data || 0,
       },
       teachers: {
-        present:  teachersPresent.data || 0,
-        total:  totalTeachers.data || 0
+        present: teachersPresent.data || 0,
+        total: totalTeachers.data || 0,
       },
       courses: {
-        total:  totalCourses.data || 0
-      }
+        total: totalCourses.data || 0,
+      },
     };
   } catch (error) {
-    console.error("Could not connect to host: " + error)
-
+    console.error("Could not connect to host: " + error);
+    store.update((defaults) => {
+      defaults.toast.showToast = true;
+      defaults.toast.type = "error";
+      defaults.toast.message = error;
+      return defaults;
+    });
     return {
       students: {
         present: 0,
-        total: 0
+        total: 0,
       },
       teachers: {
         present: 0,
-        total: 0
+        total: 0,
       },
       courses: {
-        total: 0
-      }
+        total: 0,
+      },
     };
   }
 }) satisfies PageLoad;

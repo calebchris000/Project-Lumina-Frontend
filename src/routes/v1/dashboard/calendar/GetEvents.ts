@@ -20,14 +20,7 @@ const GetEvents = async (date: string) => {
       });
     }
   } catch (error) {
-    
-    store.update((defaults) => {
-      defaults.dashboard.calendar.events = [];
-      defaults.toast.showToast = true
-      defaults.toast.message = error
-      defaults.toast.dismissible = true
-      return defaults;
-    });
+    console.error(error);
   }
 };
 
