@@ -7,7 +7,7 @@
   import StudentList from "./StudentList.svelte";
   import { store } from "src/store/store";
   export let data: LayoutData;
-  let students: any = data.results;
+  let students: any = Array.isArray(data.results) && data.results || [];
   $: students = data.results;
 
   let filtered = students;
