@@ -19,6 +19,6 @@
   </div>
 
   {#if selected === "Yearly"}
-    <!-- <AdmissionYearly /> -->
+    <AdmissionYearly />
   {/if}
 </InfoCard>
