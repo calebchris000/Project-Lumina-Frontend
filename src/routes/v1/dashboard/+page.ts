@@ -1,8 +1,9 @@
 import { store } from "src/store/store";
+import { env } from "$env/dynamic/public";
 import type { PageLoad } from "./$types";
 import axios, { HttpStatusCode } from "axios";
 export const load = (async () => {
-  const url = "http://127.0.0.1:8000";
+  const url = env.PUBLIC_API_URL;
   try {
     const promises = [
       axios.get(url + "/api/v1/student-attendance/present/today"),

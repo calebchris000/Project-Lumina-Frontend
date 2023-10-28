@@ -5,10 +5,8 @@
   import Logo from "./Logo.svelte";
   import { store } from "src/store/store";
 
-  let darkMode: boolean = false;
   let selectedItem: string;
   store.subscribe((defaults) => {
-    darkMode = defaults.theme.darkMode;
     selectedItem = defaults.sidebar.selectedTab
   });
   
@@ -23,7 +21,7 @@
 
 </script>
 
-<nav class:darkMode class="sidebar max-md:hidden bg-[#445569] w-60 border overflow-y-scroll flex flex-col border-[#445569] rounded-xl p-3">
+<nav class="sidebar max-md:hidden bg-[#445569] w-60 border overflow-y-scroll flex flex-col border-[#445569] rounded-xl p-3">
   <section>
     <Logo />
 
@@ -47,11 +45,4 @@
     scrollbar-width: none;
   }
 
-  .darkMode {
-    background-color: #28353f;
-
-    transition: all 200ms ease;
-    color: white;
-    border-color: #00000000;
-  }
 </style>
