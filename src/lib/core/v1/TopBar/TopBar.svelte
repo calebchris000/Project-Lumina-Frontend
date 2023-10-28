@@ -23,7 +23,7 @@
 <section class="topbar col-span-full bg-white p-4 py-6 rounded-xl max-sm:justify-between flex gap-10 items-center">
   <h1 class="title text-xl font-semibold text-[#445569]">{title}</h1>
   <input
-    class="outline-none p-2 max-w-[90rem] max-sm:hidden text-[#445569] border-2 w-full rounded-lg border-[#b2b2b9] focus:border-[#445569] transition-all placeholder:text-[#b2b2b9]"
+    class="outline-none p-2 max-w-[90rem] max-sm:hidden text-[#445569] border-2 w-full rounded-lg border-[#ebebeb] focus:border-[#b2b4b9] transition-all placeholder:text-[#b3b3b3]"
     type="text"
     placeholder="Search Teachers, Students, Subjects..."
   />
