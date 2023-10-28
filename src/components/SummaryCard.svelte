@@ -6,7 +6,7 @@
   export let singleNumber: boolean = false
 </script>
 
-<div class="bg-white flex-1 p-4 px-6 rounded-xl flex items-center gap-8 text-[#445569]">
+<div class="bg-white p-4 px-6 rounded-xl flex-1 flex items-center gap-8 text-[#445569]">
   <iconify-icon {icon} class="scale-[1.8]"/>
   <div>
     <p class="text-md">{title}</p>

@@ -53,22 +53,22 @@
   });
 </script>
 
-<BaseLayout className="grid grid-cols-[repeat(auto-fit,minmax(240px,1fr))] grid-rows-[80px] gap-4">
+<BaseLayout className="grid grid-cols-4 auto-rows-min gap-4">
   <TopBar />
-  <div class="summary-holder flex gap-4 flex-wrap col-span-5 row-span-1">
+  <section class="summary-container col-span-full flex flex-wrap gap-4">
     <SummaryCard icon="ph:student-bold" data={data.students.present} total={data.students.total} />
     <SummaryCard title="Teachers" icon="ph:chalkboard-teacher-duotone" data={data.teachers.present} total={data.teachers.total} />
     <SummaryCard singleNumber={true} title="Courses" icon="mdi:book-open" total={data.courses.total} />
     <SummaryCard title="Weekly Earnings" singleNumber={true} icon="fa6-solid:money-check-dollar" total="$12,500" />
-  </div>
+  </section>
     <AdmissionGraph />
-    <section class="flex flex-col">
+    <section class="flex flex-col max-xl:col-span-full">
       <InfoCard className="bg-white">
         <div class="calendar justify-center" id="calendar" />
 
         <p class="font-medium text-[#445569]">Upcoming Events</p>
 
-        <section class="grid grid-cols-2 gap-2">
+        <section class="grid grid-cols-2 gap-2 max-xl:col-span-full col-span-full">
           {#each calendarEvents as event (event.id)}
             <CalendarEventsCard eventColorLabel="#eb86be" date={format(parseISO(event.start_date), "d, MMM. yyyy")} title={event.name} />
           {/each}
@@ -76,7 +76,7 @@
       </InfoCard>
     </section>
 
-    <InfoCard className="w-full col-span-2">
+    <InfoCard className="w-full col-span-2 max-xl:col-span-full">
       <h3 class="text-[#445569] font-medium">Top Performers</h3>
       <Option />
       <Label />
@@ -84,7 +84,14 @@
       <Student name="Mark Rober" grade="8th" rank={71.6} />
     </InfoCard>
 
-    <InfoCard className="w-full flex-1 basis-[30%]">
+    <InfoCard className="w-full flex-1 basis-[30%] max-sm:col-span-full">
       <h3 class="text-[#445569] font-medium">Students</h3>
     </InfoCard>
 </BaseLayout>
+
+
+<style>
+  .summary-container {
+    /* grid-column: span 1 / auto; */
+  }
+</style>

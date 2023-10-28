@@ -20,16 +20,22 @@
   onDestroy(unsubscribe);
 </script>
 
-<section  class="bg-white p-4 col-[1/-1] py-6 rounded-xl flex gap-10 items-center">
+<section class="topbar col-span-full bg-white p-4 py-6 rounded-xl max-sm:justify-between flex gap-10 items-center">
   <h1 class="title text-xl font-semibold text-[#445569]">{title}</h1>
   <input
-    class="outline-none p-2 max-w-[90rem] text-[#445569] border-2 w-full rounded-lg border-[#b2b2b9] focus:border-[#445569] transition-all placeholder:text-[#b2b2b9]"
+    class="outline-none p-2 max-w-[90rem] max-sm:hidden text-[#445569] border-2 w-full rounded-lg border-[#b2b2b9] focus:border-[#445569] transition-all placeholder:text-[#b2b2b9]"
     type="text"
     placeholder="Search Teachers, Students, Subjects..."
   />
   <iconify-icon icon="ph:bell-simple-bold" class="scale-[1.8] text-[#445569]" />
   <!-- svelte-ignore a11y-no-static-element-interactions -->
   <!-- svelte-ignore a11y-click-events-have-key-events -->
-    <iconify-icon on:click={setTheme} icon={darkMode ? "material-symbols:sunny-outline-rounded" : "tabler:moon-filled"} class="transition-all cursor-pointer scale-[1.8] text-[#445569]" />
+    <iconify-icon on:click={setTheme} icon={darkMode ? "material-symbols:sunny-outline-rounded" : "tabler:moon-filled"} class="transition-all max-sm:hidden cursor-pointer scale-[1.8] text-[#445569]" />
   <img class="w-10 rounded-full" src={image} alt="user" />
 </section>
+
+<style>
+  .topbar {
+    grid-column: span 1 / span -1;
+  }
+</style>

@@ -37,7 +37,7 @@
 
 {#if showToast}
   <section
-    class={`fixed transition-all top-5 justify-between py-3 rounded-sm text-white w-[28rem] left-[50%] translate-x-[-50%] bg-blue-500 px-3 ${
+    class={`fixed transition-all top-5 justify-between py-3 rounded-sm text-white z-[9999] w-[28rem] left-[50%] translate-x-[-50%] bg-blue-500 px-3 ${
       type == "success" ? "bg-green-600" : type == "error" ? "bg-red-600" : "bg-blue-600"
     }`}
   >

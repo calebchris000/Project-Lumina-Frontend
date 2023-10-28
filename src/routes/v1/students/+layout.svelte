@@ -28,7 +28,7 @@
   }
 </script>
 
-<main class="flex w-full">
+<main class="w-full">
   <BaseLayout scrollable={true} className="gap-4 overflow-auto transition-all">
     <TopBar title="Students" />
     <section class="flex gap-4 flex-wrap">

@@ -13,6 +13,10 @@
     background-color: #f1f4fa;
 }
 
+:root *::-webkit-scrollbar {
+    display: none;
+}
+
 :root, body {
     height: 100vh;
     width: 100vw;

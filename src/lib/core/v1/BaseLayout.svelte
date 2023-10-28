@@ -3,7 +3,7 @@
   export let scrollable: boolean = true
 </script>
 
-<main class={`w-full rounded-xl flex flex-col ${className}`} class:scrollable>
+<main class={`w-full h-full rounded-xl flex flex-col ${className}`} class:scrollable>
   <slot />
 </main>
 
@@ -12,5 +12,6 @@
   .scrollable {
     overflow-y: scroll;
     scrollbar-width: none;
+    
   }
 </style>

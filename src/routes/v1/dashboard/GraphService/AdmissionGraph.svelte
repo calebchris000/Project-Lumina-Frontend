@@ -8,7 +8,7 @@
   $: selected = $store.admission.option.selected;
 </script>
 
-<InfoCard className=" col-[1/-2] w-auto">
+<InfoCard className="w-full col-span-3 max-xl:col-span-full ">
   <div class="flex items-center justify-between">
     <h3 class="text-[#445569] font-medium">Admission Overview</h3>
     <select class="text-xs text-[#445569] rounded-sm px-2 font-medium bg-[#f1f4fa]">

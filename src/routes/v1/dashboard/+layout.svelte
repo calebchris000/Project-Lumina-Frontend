@@ -5,7 +5,7 @@
   export let data: LayoutData;
 </script>
 
-<main class="flex w-full">
+<main class="w-full">
   <slot></slot>
 </main>
 
