@@ -88,10 +88,3 @@
       <h3 class="text-[#445569] font-medium">Students</h3>
     </InfoCard>
 </BaseLayout>
-
-
-<style>
-  .summary-container {
-    /* grid-column: span 1 / auto; */
-  }
-</style>
