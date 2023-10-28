@@ -39,18 +39,32 @@ export const load = (async () => {
 
     return {
       students: {
-        present: studentPresent.data,
-        total: totalStudents.data
+        present: studentPresent.data || 0,
+        total: totalStudents.data || 0
       },
       teachers: {
-        present: teachersPresent.data,
-        total: totalTeachers.data
+        present:  teachersPresent.data || 0,
+        total:  totalTeachers.data || 0
       },
       courses: {
-        total: totalCourses.data
+        total:  totalCourses.data || 0
       }
     };
   } catch (error) {
     console.error("Could not connect to host: " + error)
+
+    return {
+      students: {
+        present: 0,
+        total: 0
+      },
+      teachers: {
+        present: 0,
+        total: 0
+      },
+      courses: {
+        total: 0
+      }
+    };
   }
 }) satisfies PageLoad;

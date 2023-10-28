@@ -20,7 +20,7 @@
   onDestroy(unsubscribe);
 </script>
 
-<section class:darkMode class="bg-white p-4 py-6 rounded-xl flex gap-10 items-center">
+<section class:darkMode class="bg-white p-4 col-[1/-1] py-6 rounded-xl flex gap-10 items-center">
   <h1 class="title text-xl font-semibold text-[#445569]">{title}</h1>
   <input
     class="outline-none p-2 max-w-[90rem] text-[#445569] border-2 w-full rounded-lg border-[#b2b2b9] focus:border-[#445569] transition-all placeholder:text-[#b2b2b9]"

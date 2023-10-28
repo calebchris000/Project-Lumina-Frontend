@@ -28,6 +28,15 @@ let defaults = {
       events: [],
     },
   },
+
+  admission: {
+    option: {
+      selected: "Yearly",
+    },
+    yearly: [],
+    monthly: [],
+    weekly: [],
+  },
 };
 
 export const store = writable(defaults);

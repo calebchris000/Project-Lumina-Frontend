@@ -23,7 +23,7 @@
 
 </script>
 
-<nav class:darkMode class="sidebar bg-[#445569] w-60 border overflow-y-scroll flex flex-col border-[#445569] rounded-xl p-3">
+<nav class:darkMode class="sidebar max-md:hidden bg-[#445569] w-60 border overflow-y-scroll flex flex-col border-[#445569] rounded-xl p-3">
   <section>
     <Logo />
 

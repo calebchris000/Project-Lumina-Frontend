@@ -13,7 +13,7 @@
     {#if singleNumber}
     <p class="text-xl font-[500]">{total}</p>
     {:else}
-    <p class="text-xl font-[500]">{data} | {total}</p>
+    <p class="text-xl font-[500]">{data ? data : 0} | {total}</p>
     {/if}
   </div>
 </div>
