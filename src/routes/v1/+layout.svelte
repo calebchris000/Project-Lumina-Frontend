@@ -19,7 +19,7 @@
     }
 
     :root * {
-      border-color: #445569
+      border-color: #445569;
     }
     :root section,
     :root nav,
@@ -42,8 +42,22 @@
     :root .color-calendar {
       background: rgba(0, 0, 0, 0);
     }
+    :root .calendar__picker {
+      background: #253441 !important
+    }
+
+    :root .calendar__picker-month-option, :root .calendar__picker-year-option {
+      background: #445569;
+      color: white
+    }
+
+    :root .apexcharts-active, :root .apexcharts-tooltip-title {
+      background: #253441 !important;
+      border-color: #445569;
+      box-shadow: none;
+    }
     :root .calendar__weekdays .calendar__weekday {
-      color: white;
+      color: white !important;
     }
     :root .student-option-tab{
       background: #445569;
@@ -65,7 +79,9 @@
     :root select {
       background: #253441;
       outline: none;
-      border: 2px solid white;
+      border: 2px solid #445569;
+      border-radius: 6px;
+      padding: 0.2rem 0.3rem;
       color: white;
     }
 
@@ -83,8 +99,13 @@
       background: rgba(0, 0, 0, 0);
     }
 
-    :root .apexcharts-text {
-      color: red;
+    :root tspan, :root .apexcharts-legend-text {
+      fill: white;
+      color: white !important;
+    }
+
+    :root .calendar-events {
+      background: #445569
     }
   </style>
 {/if}
@@ -93,4 +114,5 @@
   :root svg {
     background: white;
   }
+
 </style>

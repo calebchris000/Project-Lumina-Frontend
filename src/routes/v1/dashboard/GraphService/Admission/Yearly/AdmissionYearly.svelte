@@ -20,6 +20,8 @@
           type: "bar",
           height: 300,
         },
+        colors: ['#cccccc', '#101519'],
+
         plotOptions: {
           bar: {
             horizontal: false,

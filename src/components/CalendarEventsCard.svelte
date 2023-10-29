@@ -6,7 +6,7 @@
   export let event_id: string = ''
 </script>
 
-<section id={event_id} class="text-sm w-full bg-[#f1f4fa] rounded-md p-2">
+<section id={event_id} class="calendar-events text-sm w-full bg-[#f1f4fa] rounded-md p-2">
   <div class=" font-medium flex items-center gap-1 text-xs text-[#9c9c9c]">
     <p style="background-color: {eventColorLabel};" class={`event-color-label not-italic rounded-full p-[3px]`} />
     {date}
