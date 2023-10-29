@@ -63,10 +63,6 @@
       background: #445569;
     }
 
-    :root .student-profile-bar {
-      /* background: #253519 */
-    }
-
     :root .index {
       background: white;
       color: #101519
