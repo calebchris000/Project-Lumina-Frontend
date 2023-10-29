@@ -11,7 +11,7 @@
     <p style="background-color: {eventColorLabel};" class={`event-color-label not-italic rounded-full p-[3px]`} />
     {date}
   </div>
-  <div class="flex items-center gap-3">
+  <div class="flex flex-wrap items-center gap-3">
     <p>{title}</p>
     <iconify-icon class=" hover:translate-x-[4px] transition-all scale-[1.2]" icon="material-symbols:arrow-forward" />
   </div>

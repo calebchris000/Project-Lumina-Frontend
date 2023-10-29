@@ -55,14 +55,14 @@
 
 <BaseLayout className="grid grid-cols-4 auto-rows-min gap-4">
   <TopBar />
-  <section class="summary-container col-span-full flex flex-wrap gap-4">
+  <div class="summary-container col-span-full flex flex-wrap gap-4">
     <SummaryCard icon="ph:student-bold" data={data.students.present} total={data.students.total} />
     <SummaryCard title="Teachers" icon="ph:chalkboard-teacher-duotone" data={data.teachers.present} total={data.teachers.total} />
     <SummaryCard singleNumber={true} title="Courses" icon="mdi:book-open" total={data.courses.total} />
     <SummaryCard title="Weekly Earnings" singleNumber={true} icon="fa6-solid:money-check-dollar" total="$12,500" />
-  </section>
+  </div>
     <AdmissionGraph />
-    <section class="flex flex-col max-xl:col-span-full">
+    <div class="flex flex-col max-xl:col-span-full">
       <InfoCard className="bg-white">
         <div class="calendar justify-center" id="calendar" />
 
@@ -74,7 +74,7 @@
           {/each}
         </section>
       </InfoCard>
-    </section>
+    </div>
 
     <InfoCard className="w-full col-span-2 max-xl:col-span-full">
       <h3 class="text-[#445569] font-medium">Top Performers</h3>

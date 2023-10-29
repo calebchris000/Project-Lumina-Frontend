@@ -18,7 +18,7 @@
 
 <section
   class:darkMode
-  class="flex justify-between text-[#445569] bg-gray-200 border-b-2 border-gray-200 absolute left-0 right-0 top-0 z-[9999] rounded-tl-xl rounded-tr-xl"
+  class="student-option-tab flex justify-between text-[#445569] bg-gray-200 border-b-2 border-gray-200 absolute left-0 right-0 top-0 z-[9999] rounded-tl-xl rounded-tr-xl"
 >
   <button data-index={0} class="transition-all w-full py-3 rounded-tl-xl" on:click={handleSelect} class:index={index === 0}>Attendance</button>
   <button data-index={1} class="transition-all w-full" on:click={handleSelect} class:index={index === 1}>Performance</button>

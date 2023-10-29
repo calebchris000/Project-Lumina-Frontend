@@ -22,7 +22,7 @@
 </script>
 
 <nav class="sidebar row-[1/-1] max-md:hidden bg-[#445569] w-60 border overflow-y-scroll flex flex-col border-[#445569] rounded-xl p-3">
-  <section>
+  <section class="sidebar-sub">
     <Logo />
 
     <div class="flex flex-col relative top-5 gap-2">

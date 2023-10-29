@@ -7,8 +7,8 @@
 
   let darkMode: boolean = false;
   function setTheme() {
+    darkMode = !darkMode
     store.update((defaults) => {
-      darkMode = !darkMode
       defaults.theme.darkMode = darkMode 
       return defaults;
     });

@@ -19,7 +19,7 @@
 
 <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
 <!-- svelte-ignore a11y-click-events-have-key-events -->
-<InfoCard className="border-2  font-medium text-lg">
+<InfoCard className="border-2 font-medium text-lg">
   <OptionTabs on:currentIndex={handleOption} />
   {#if selectedOption === 0}
     <AttendanceGraph />

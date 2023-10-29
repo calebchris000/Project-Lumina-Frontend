@@ -31,7 +31,7 @@
 <main class="w-full">
   <BaseLayout scrollable={true} className="gap-4 overflow-auto transition-all">
     <TopBar title="Students" />
-    <section class="flex gap-4 flex-wrap">
+    <div class="flex gap-4 flex-wrap">
       <InfoCard className="flex-1 basis-[30%] transition-all">
         <div class="flex relative items-center m-0 gap-4 justify-between">
           <h2 class="text-lg font-medium text-[#445569]">Students</h2>
@@ -59,7 +59,7 @@
         </section>
       </InfoCard>
       <slot />
-    </section>
+    </div>
   </BaseLayout>
 </main>
 
