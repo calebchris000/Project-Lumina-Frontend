@@ -106,9 +106,3 @@
   </style>
 {/if}
 
-<style>
-  :root svg {
-    background: white;
-  }
-
-</style>
