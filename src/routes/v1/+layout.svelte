@@ -5,7 +5,7 @@
   let darkMode: boolean = $store.theme.darkMode;
 </script>
 
-<main class="flex gap-5 m-5 h-[94%] w-full">
+<main class="flex gap-5 h-full p-5 w-full">
   <Toast />
   <Sidebar />
   <slot />
