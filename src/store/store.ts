@@ -1,5 +1,5 @@
 import { browser } from "$app/environment";
-import { SaveLocalStorage } from "src/routes/v1/LocalStorage";
+import { SaveLocalStorage } from "$lib/shared/LocalStorage"
 import { writable } from "svelte/store";
 
 let defaults = {
