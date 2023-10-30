@@ -1,3 +1,5 @@
+import { browser } from "$app/environment";
+import { SaveLocalStorage } from "src/routes/v1/LocalStorage";
 import { writable } from "svelte/store";
 
 let defaults = {
@@ -39,4 +41,17 @@ let defaults = {
   },
 };
 
+
+if(browser) {
+  const data: string = localStorage.getItem('application')
+  if(data) {
+
+    defaults = JSON.parse(data)
+  }
+}
+
 export const store = writable(defaults);
+
+store.subscribe((defaults) => {
+  SaveLocalStorage(defaults);
+});
